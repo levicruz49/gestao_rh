@@ -1,9 +1,10 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView
 from .models import Empresa
 
-class EmpresaCreate(CreateView):
+class EmpresaCreate(LoginRequiredMixin, CreateView):
     model = Empresa
     fields = ['nome']
 
@@ -16,7 +17,7 @@ class EmpresaCreate(CreateView):
 
 
 
-class EmpresaEdit(UpdateView):
+class EmpresaEdit(LoginRequiredMixin, UpdateView):
     model = Empresa
     fields = '__all__'
     success_url = reverse_lazy('home')

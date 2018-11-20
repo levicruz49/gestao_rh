@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+
+{% block main %}
+<form method="post">
+    {% csrf_token %}
+
+    <h1>Você deseja confirmar a exclusão do departamento "{{object.nome}}" ? </h1>
+
+    {{ form|bootstrap }}
+    <button type="submit" class="btn btn-danger">Confirmar</button>
+</form>
+
+{% endblock  %}
