@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+    {% block static_css %}
+        <style>
+            .teste {color : red;}
+        </style>
+    {% endblock %}
+
+{% block main %}
+    <h1 class="teste">Meu Relatorio</h1>
+    <h2>{{ sales }}</h2>
+{% endblock %}

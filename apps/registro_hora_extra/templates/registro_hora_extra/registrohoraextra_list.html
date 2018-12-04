@@ -3,13 +3,16 @@
 {% block main %}
 
     {% for registro_re in object_list %}
-        <a href="{}" class="">{{funcionario}}</a> <br>
-
-        <a href="{}">Deletar</a>  <br>
-        {{registro_re}}
+        <a href="{% url 'update_hora_extra_base' registro_re.id %}" class="">{{registro_re}}</a> <br>
 
     {% endfor %}
 
-<!--<a href="{% url 'create_funcionario' %}" class="btn btn-primary">Novo</a>-->
+    {% if not object_list %}
+        <h3>Não existem horas extra no banco</h3>
+    {% endif %}
+
+<a href="{% url 'create_hora_extra_base' %}" class="btn btn-primary">Novo</a>
+<a href="{% url 'relatorio_hora_extra' %}" class="btn btn-primary">Relatorio Horas extras</a>
+<a href="{% url 'relatorio_hora_extra_excel' %}" class="btn btn-danger">Relatorio Horas extras excel</a>
 
 {% endblock %}
