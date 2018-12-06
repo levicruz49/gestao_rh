@@ -73,7 +73,6 @@ class horaextradelet(LoginRequiredMixin, DeleteView):
 class utilizouHoraExtra(View):
     def post(self, *args, **kwargs):
 
-
         registro_hora_extra = registroHoraExtra.objects.get(id=kwargs['pk'])
         registro_hora_extra.utilizada = True
         registro_hora_extra.save()
