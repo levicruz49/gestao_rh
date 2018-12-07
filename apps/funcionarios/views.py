@@ -6,10 +6,10 @@ from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import ListView, UpdateView, DeleteView, CreateView
 from django.views.generic.base import View
-
 from .models import funcionario
 from django.template.loader import get_template
 import xhtml2pdf.pisa as pisa
+
 
 # Create your views here.
 
@@ -73,3 +73,4 @@ class Pdf(View):
             'request':request,
         }
         return Render.render('funcionarios/relatorio.html', params, 'myfile')
+
